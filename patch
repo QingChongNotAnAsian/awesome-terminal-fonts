@@ -18,6 +18,10 @@ except ImportError:
         sys.stderr.write('You need FontForge with Python bindings for this script to work.\n')
     sys.exit(1)
 
+if sys.version_info.major > 2:
+	sys.stderr.write('This script only supports Python 2. Please run this script with the Python 2 executable - e.g. "python2 {0}\n"'.format(sys.argv[0]))
+	sys.exit(0)
+
 # Handle command-line arguments
 parser = argparse.ArgumentParser(description='Add one font glyphs (mostly symbols) to another one')
 parser.add_argument('target_font_path', help='font file to patch', metavar='target')
